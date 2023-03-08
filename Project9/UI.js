@@ -21,7 +21,11 @@ export class UI {
         // timer
         context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily;
         //context.fillText(`Time Survived: ${(this.game.time * 0.001).toFixed(1)}`,  10, 63);
-        context.fillText(`Time Left: ${((this.game.maxTime * 0.001) - (this.game.time * 0.001)).toFixed(1)}`,  10, 63);
+        if (((this.game.maxTime * 0.001) - (this.game.time * 0.001)).toFixed(1) > 0) {
+            context.fillText(`Time Left: ${((this.game.maxTime * 0.001) - (this.game.time * 0.001)).toFixed(1)}`,  10, 63);
+        } else {
+            context.fillText(`Time Left: 0.0`,  10, 63);
+        }
 
         // lives
         for (let i = 0; i < this.game.lives; i++) {
