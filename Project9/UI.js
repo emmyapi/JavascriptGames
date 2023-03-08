@@ -40,8 +40,8 @@ export class UI {
             } else {
                 context.font = this.fontSize * 1.2 + 'px ' + this.fontFamily;
                 context.fillText(`Maybe you're just not cut out for the super hero stuff!`, this.game.width * 0.5, this.game.height * 0.5 - 20);
-                context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
-                context.fillText(`Hit 'Enter' to try again!`, this.game.width * 0.5, this.game.height * 0.5 + 20);
+                // context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
+                // context.fillText(`Hit 'Enter' to try again!`, this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
         }
         context.restore();

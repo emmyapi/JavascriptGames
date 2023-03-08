@@ -23,6 +23,22 @@ export class Player {
         this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game), new Diving(this.game), new Hit(this.game)];
         this.currentState = null;
     }
+    // restart(){
+    //     this.x = 25;
+    //     this.y = this.game.height - this.height - this.game.groundMargin;
+    //     this.image = document.getElementById('player');
+    //     this.frameX = 0;
+    //     this.frameY = 0;
+    //     this.maxFrame = 0; // number of frames on the x-axis
+    //     this.fps = 24;
+    //     this.frameInterval = 1000/this.fps;
+    //     this.frameTimer = 0;
+    //     this.speed = 0;
+    //     this.maxSpeed = 4;
+    //     this.weight = 1;
+    //     this.vy = 0;
+    //     this.currentState = this.states[0];
+    // }
     update(input, deltaTime){
         this.checkCollision();
         // match state with allowed input
@@ -30,8 +46,8 @@ export class Player {
 
         // horizontal movement
         this.x += this.speed;
-        if (input.includes('ArrowRight') && this.currentState !== this.states[6]) this.speed = this.maxSpeed;
-        else if (input.includes('ArrowLeft') && this.currentState !== this.states[6]) this.speed = -this.maxSpeed;
+        if (input.includes('d') && this.currentState !== this.states[6]) this.speed = this.maxSpeed;
+        else if (input.includes('a') && this.currentState !== this.states[6]) this.speed = -this.maxSpeed*3;
         else this.speed = 0;
 
         // horizontal boundaries (remember to always have boundaries after movement)

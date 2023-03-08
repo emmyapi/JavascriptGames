@@ -7,7 +7,7 @@ import { UI } from "./UI.js";
 window.addEventListener('load', function(){
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 900;
+    canvas.width = 1100;
     canvas.height = 500;
 
     class Game {
@@ -77,6 +77,16 @@ window.addEventListener('load', function(){
             this.particles = this.particles.filter(particle => !particle.markedForDeletion);
             this.collisions = this.collisions.filter(collision => !collision.markedForDeletion);
             this.floatingMessages = this.floatingMessages.filter(message => !message.markedForDeletion);
+
+            // // restart game
+            // if (this.gameOver) {
+            //     window.addEventListener('keydown', e => {
+            //         if (e.key === 'Backspace'){
+            //             restartGame();
+            //         }
+            //     });
+            // }
+            
         }
         draw(context){
             this.background.draw(context);
@@ -100,11 +110,18 @@ window.addEventListener('load', function(){
             if (game.speed > 0 && Math.random() < 0.5) this.enemies.push(new GroundEnemy(this));
             else if (game.speed > 0) this.enemies.push(new ClimbingEnemy(this));
         }
-    }
-
+    };
+    
+    // function restartGame(){
+    //     game = new Game(canvas.width, canvas.height);
+    //     animate(0);
+    // };
+    
+    
     const game = new Game(canvas.width, canvas.height);
     let lastTime = 0;
-
+    
+    
     function animate(timeStamp){
         const deltaTime = timeStamp - lastTime;
         lastTime = timeStamp;
